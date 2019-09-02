@@ -1,0 +1,24 @@
+pipeline{
+ agent any
+ environment {
+    ANYPOINT = credentials('ANYPOINT')
+	JAVA_HOME = 'C:/Program Files/Java/jdk1.8.0_171'
+ }
+ stages {
+ 	stage ('Build'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				bat 'mvn -f mockhttprequest/pom.xml clean install'
+ 			}
+ 		}
+ 	}
+ 	stage ('Deploy'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				bat 'mvn deploy -P cloudhub -Danypoint.username=$ANYPOINT_USR -Danypoint.password=$ANYPOINT_PSW -Danypoint.environment=Sandbox -DmuleDeploy'
+ 			}
+ 		}
+ 	}
+ }
+
+}

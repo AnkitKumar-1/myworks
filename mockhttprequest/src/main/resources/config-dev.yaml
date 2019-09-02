@@ -1,0 +1,16 @@
+#http
+http:
+  port: "8081"
+
+#Mysql Configuration
+db:
+  host: "localhost"
+  port: "3306"
+  username: "root"
+  password: "javaj2ee"
+  schema: "muleesb"
+  
+#oauth configuration
+oauth:
+  host: "mule-oauth2-provider-3.us-e2.cloudhub.io"
+  path: "/access_token"
