@@ -5,20 +5,15 @@ pipeline{
 	PATH = 'C:/WINDOWS/SYSTEM32'
  }
  stages {
- 	stage ('Build'){
- 		steps {
- 			withMaven(maven:'maven'){
- 				bat 'mvn -f mockhttprequest/pom.xml clean install'
- 			}
- 		}
- 	}
- 	stage ('Deploy'){
- 		steps {
- 			withMaven(maven:'maven'){
- 				bat 'mvn -f mockhttprequest/pom.xml package deploy -DmuleDeploy -Danypoint.username=$ANYPOINT_USR -Danypoint.password=$ANYPOINT_PSW -Danypoint.environment=Sandbox'
- 			}
+	stage('Unit') {
+		steps {
+			bat 'mvn clean test'
+			}
+		}
+	stage('Deploy CloudHub') {
+		steps {
+			bat 'mvn deploy -DmuleDeploy -Danypoint.environment=Sandbox -DcloudhubAppName=mulehttprequest -Danypoint.username=$ANYPOINT_USR -Danypoint.password=$ANYPOINT_PSW'
+		}
  		}
  	}
  }
-
-}
