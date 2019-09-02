@@ -15,7 +15,7 @@ pipeline{
  	stage ('Deploy'){
  		steps {
  			withMaven(maven:'maven'){
- 				bat 'mvn deploy -DmuleDeploy -Danypoint.username=$ANYPOINT_USR -Danypoint.password=$ANYPOINT_PSW -Danypoint.environment=Sandbox'
+ 				bat 'mvn -f mockhttprequest/pom.xml package deploy -DmuleDeploy -Danypoint.username=$ANYPOINT_USR -Danypoint.password=$ANYPOINT_PSW -Danypoint.environment=Sandbox'
  			}
  		}
  	}
