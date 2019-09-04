@@ -8,7 +8,7 @@ pipeline{
     stage('Unit Test') {
       steps {
       	withMaven(maven:'maven'){
-       		bat 'mvn clean test'
+       		bat 'mvn -f mockhttprequest/pom.xml clean test'
       	}
       }
     }
