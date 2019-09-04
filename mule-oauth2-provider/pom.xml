@@ -47,6 +47,13 @@
 				<version>1.7</version>
 				<executions>
 					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+					<execution>
 						<id>add-resource</id>
 						<phase>generate-resources</phase>
 						<goals>
