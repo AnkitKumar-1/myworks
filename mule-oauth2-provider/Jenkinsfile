@@ -12,17 +12,10 @@ pipeline{
       	}
       }
     }
-    stage ('Build'){
- 		steps {
- 			withMaven(maven:'maven'){
- 				bat 'mvn -f mockhttprequest/pom.xml clean install'
- 			}
- 		}
- 	}
  	stage ('Deploy CloudHub'){
  		steps {
  			withMaven(maven:'maven'){
- 				bat 'mvn deploy -P cloudhub  -Dusername=vij4m3 -Dpassword=Ted@123'
+ 				bat 'mvn deploy -f mockhttprequest/pom.xml -P cloudhub  -Dusername=vij4m3 -Dpassword=Ted@123'
  			}
  		}
  	}
