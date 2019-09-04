@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/sche
 http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd">
 	<!-- This is the main configuration file, you should place here all the Connectors configuration and declarations -->
 
-	<context:property-placeholder location="config-${mule.env}.properties" />
+	<context:property-placeholder location="config-prod.properties" />
 
 	<mule-ss:security-manager xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security" name="single-user-security-manager" doc:name="Spring Security Provider">
 		<mule-ss:delegate-security-provider name="single-user-security-provider" delegate-ref="single-user-authentication-manager" />
