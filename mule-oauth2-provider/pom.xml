@@ -27,7 +27,11 @@
 					<muleVersion>${mule.version}</muleVersion>
 					<username>${username}</username>
 					<password>${password}</password>
-					<applicationName>${project.artifactId}</applicationName>
+					<applications>
+						<application>./${project.artifactId}-${project.version}.zip</application>
+					</applications>
+					<!-- Need to specify App suffix in build -->
+					<applicationName>${project.artifactId}${mule.appsuffix}</applicationName>
 					<environment>${env}</environment>
 					<uri>https://anypoint.mulesoft.com</uri>
 					<inclusions>
