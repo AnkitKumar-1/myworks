@@ -28,7 +28,7 @@
 					<username>${username}</username>
 					<password>${password}</password>
 					<applications>
-						<application>./${project.artifactId}-${project.version}.zip</application>
+						<application>./${project.artifactId}-${project.version}.jar</application>
 					</applications>
 					<!-- Need to specify App suffix in build -->
 					<applicationName>${project.artifactId}</applicationName>
