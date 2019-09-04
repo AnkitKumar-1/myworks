@@ -6,7 +6,7 @@
 	<groupId>com.mycompany</groupId>
 	<artifactId>mule-oauth2-provider</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>mule</packaging>
 	<name>Mule mule-oauth2-provider Application</name>
 
 	<properties>
@@ -28,9 +28,6 @@
 					<muleVersion>${mule.version}</muleVersion>
 					<username>${username}</username>
 					<password>${password}</password>
-					<applications>
-						<application>./${project.artifactId}-${project.version}.zip</application>
-					</applications>
 					<applicationName>${project.artifactId}</applicationName>
 					<environment>${env}</environment>
 					<uri>https://anypoint.mulesoft.com</uri>
