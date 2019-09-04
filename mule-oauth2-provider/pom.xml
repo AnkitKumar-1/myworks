@@ -6,7 +6,6 @@
 	<groupId>com.mycompany</groupId>
 	<artifactId>anypointoauth2.0provider</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>mule</packaging>
 	<name>Mule anypointoauth2.0provider Application</name>
 
 	<properties>
@@ -31,7 +30,7 @@
 					<muleVersion>${mule.version}</muleVersion>
 					<username>${username}</username>
 					<password>${password}</password>
-					<applicationName>${artifactId}</applicationName>
+					<applicationName>${project.artifactId}</applicationName>
 					<environment>${env}</environment>
 					<uri>https://anypoint.mulesoft.com</uri>
 					<inclusions>
