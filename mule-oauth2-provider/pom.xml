@@ -40,11 +40,6 @@
 						</inclusion>
 					</inclusions>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
 				<executions>
 					<execution>
 						<id>deploy</id>
@@ -53,6 +48,13 @@
 							<goal>deploy</goal>
 						</goals>
 					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
 					<execution>
 						<id>add-resource</id>
 						<phase>generate-resources</phase>
