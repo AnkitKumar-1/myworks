@@ -6,7 +6,6 @@
 	<groupId>com.mycompany</groupId>
 	<artifactId>mule-oauth2-provider</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
 	<name>Mule mule-oauth2-provider Application</name>
 
 	<properties>
