@@ -4,10 +4,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany</groupId>
-	<artifactId>mule-oauth2-provider</artifactId>
+	<artifactId>mule3-oauth2-provider1</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
-	<name>Mule mule-oauth2-provider Application</name>
+	<name>Mule mule3-oauth2-provider1 Application</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
