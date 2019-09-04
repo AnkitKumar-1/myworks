@@ -6,7 +6,7 @@
 	<groupId>com.mycompany</groupId>
 	<artifactId>mule-oauth2-provider</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>mule</packaging>
 	<name>Mule mule-oauth2-provider Application</name>
 
 	<properties>
@@ -21,16 +21,33 @@
 		<plugins>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-app-maven-plugin</artifactId>
+				<version>${mule.tools.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<copyToAppsDirectory>true</copyToAppsDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>2.2.1</version>
 				<configuration>
+					<uri>https://anypoint.mulesoft.com</uri>
 					<deploymentType>cloudhub</deploymentType>
 					<muleVersion>${mule.version}</muleVersion>
 					<username>${username}</username>
 					<password>${password}</password>
-					<applicationName>${project.artifactId}</applicationName>
-					<environment>${env}</environment>
-					<uri>https://anypoint.mulesoft.com</uri>
+					<applicationName>${project.artifactId}-${maven.build.timestamp}</applicationName>
+					<environment>Sandbox</environment>
 					<inclusions>
 						<inclusion>
 							<groupId>com.mulesoft.security</groupId>
@@ -47,15 +64,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-app-maven-plugin</artifactId>
-				<version>${mule.tools.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<copyToAppsDirectory>true</copyToAppsDirectory>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

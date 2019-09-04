@@ -5,18 +5,14 @@ pipeline{
 	PATH = 'C:/WINDOWS/SYSTEM32'
  }
  stages {
- 	stage ('Build'){
+    stage('Unit Test') {
+      steps {
+        sh 'mvn clean test'
+      }
+    }
+ 	stage ('Deploy CloudHub'){
  		steps {
- 			withMaven(maven:'maven'){
- 				bat 'mvn -f mule-oauth2-provider/pom.xml clean install'
- 			}
- 		}
- 	}
- 	stage ('Deploy'){
- 		steps {
- 			withMaven(maven:'maven'){
- 				bat 'mvn -f mule-oauth2-provider/pom.xml package deploy  -Dusername=vij4m3 -Dpassword=Ted@123 -Denv=Sandbox -DmuleDeploy'
- 			}
+ 				bat '- mvn deploy -P cloudhub  -Dusername=vij4m3 -Dpassword=Ted@123'
  		}
  	}
  }
