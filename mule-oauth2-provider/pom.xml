@@ -29,7 +29,7 @@
 					<muleVersion>${mule.version}</muleVersion>
 					<username>${username}</username>
 					<password>${password}</password>
-					<applicationName>${project.artifactId}-${maven.build.timestamp}</applicationName>
+					<applicationName>${project.artifactId}</applicationName>
 					<environment>Sandbox</environment>
 					<inclusions>
 						<inclusion>
