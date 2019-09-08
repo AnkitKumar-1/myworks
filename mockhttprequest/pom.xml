@@ -34,6 +34,7 @@
 						<username>${username}</username>
 						<password>${password}</password>
 						<applicationName>${project.artifactId}</applicationName>
+						<workerType>${cloudhub.worker.type}</workerType>
 						<environment>${environment}</environment>
 					</cloudHubDeployment>
 				</configuration>
