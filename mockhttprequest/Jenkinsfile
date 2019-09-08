@@ -15,7 +15,7 @@ pipeline{
  	stage ('Deploy'){
  		steps {
  			withMaven(maven:'maven'){
- 				bat 'mvn -f mockhttprequest/pom.xml deploy -Dusername=vij4m3 -Dpassword=Ted@123 -Denvironment=Sandbox -DmuleDeploy'
+ 				bat 'mvn -f mockhttprequest/pom.xml deploy -Dusername=vij4m3 -Dpassword=Ted@123 -Denvironment=Sandbox -Dcloudhub.worker.type=Micro -DmuleDeploy'
  			}
  		}
  	}
