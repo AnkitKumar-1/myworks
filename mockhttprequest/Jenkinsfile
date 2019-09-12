@@ -12,6 +12,13 @@ pipeline{
  			}
  		}
  	}
+	stage('SonarQube Analysis'){
+		steps {
+			withSonarQubeEnv('SonarQube'){
+				bat '${MAVEN_HOME}/bin/mvn sonar:sonar'
+			}
+		}
+    }
  	stage ('Deploy'){
  		steps {
  			withMaven(maven:'maven'){
@@ -19,11 +26,6 @@ pipeline{
  			}
  		}
  	}
-	stage('SonarQube Analysis') {
-		withSonarQubeEnv('SonarQube'){
-			bat '${MAVEN_HOME}/bin/mvn sonar:sonar'
-		}
-    }
  }
 
 }
