@@ -15,7 +15,7 @@ pipeline{
 	stage('SonarQube Analysis'){
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat 'C:/Program Files/apache-maven-3.3.9/bin/mvn sonar:sonar'
+				bat 'mvn sonar:sonar'
 			}
 		}
     }
