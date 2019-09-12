@@ -13,9 +13,10 @@ pipeline{
  		}
  	}
 	stage('SonarQube Analysis'){
+		def mvnHome = tool name: 'maven-3', type:'maven'
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat 'mvn clean install sonar:sonar'
+				bat '${mvnHome}/bin/mvn sonar:sonar'
 			}
 		}
     }
