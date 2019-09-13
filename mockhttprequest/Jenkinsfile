@@ -18,7 +18,7 @@ pipeline{
 	stage('SonarQube Analysis'){
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat 'mvn clean install sonar:sonar'
+				bat 'mvn -f mockhttprequest/pom.xml clean install sonar:sonar'
 			}
 		}
     }
