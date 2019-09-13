@@ -20,13 +20,6 @@
 
 		<sonar.sources>src/main</sonar.sources>
 		<sonar.tests>src/test</sonar.tests>
-		<!-- Below property indicates the pattern of the test suite -->
-		<runSuite>**/*Suite.class</runSuite>
-		<!-- Sonar-JaCoCo properties -->
-		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-		<sonar.language>java</sonar.language>
 
 	</properties>
 
@@ -64,25 +57,6 @@
 						<include>${runSuite}</include>
 					</includes>
 				</configuration>
-			</plugin>
-
-			<!-- Sonar-JaCoCo integration plugin -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.6.201602180812</version>
-				<configuration>
-					<destFile>${sonar.jacoco.reportPath}</destFile>
-					<append>true</append>
-				</configuration>
-				<executions>
-					<execution>
-						<id>agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
