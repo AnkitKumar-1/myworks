@@ -4,6 +4,9 @@ pipeline{
     ANYPOINT = credentials('ANYPOINT')
 	PATH = 'C:/WINDOWS/SYSTEM32'
  }
+ tools {
+    maven 'Maven 3.3.9'
+ }
  stages {
  	stage ('Build'){
  		steps {
@@ -13,10 +16,9 @@ pipeline{
  		}
  	}
 	stage('SonarQube Analysis'){
-		def mvnHome = 'C:/Program Files/apache-maven-3.3.9'
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat '${mvnHome}/bin/mvn sonar:sonar'
+				bat 'mvn clean install sonar:sonar'
 			}
 		}
     }
