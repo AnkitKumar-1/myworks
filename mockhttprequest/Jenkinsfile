@@ -13,10 +13,9 @@ pipeline{
  		}
  	}
 	stage('SonarQube Analysis'){
-		def mvnHome = 'C:/Program Files/apache-maven-3.3.9'
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat '${mvnHome}/bin/mvn sonar:sonar'
+				bat 'clean install sonar:sonar'
 			}
 		}
     }
