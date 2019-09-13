@@ -5,7 +5,7 @@ pipeline{
 	PATH = 'C:/WINDOWS/SYSTEM32'
  }
  tools {
-    maven 'maven'
+    maven 'Maven 3.3.9'
  }
  stages {
  	stage ('Build'){
@@ -18,7 +18,7 @@ pipeline{
 	stage('SonarQube Analysis'){
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat 'mvn -f mockhttprequest/pom.xml clean install sonar:sonar'
+				bat 'mvn clean install sonar:sonar'
 			}
 		}
     }
