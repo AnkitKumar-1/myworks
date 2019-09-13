@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<servers>
+		<server>
+			<username>admin</username>
+			<password>password</password>
+			<id>ec2-arti</id>
+		</server>
+	</servers>
+	<mirrors>
+		<mirror>
+			<id>mule-ee-proxy</id>
+			<name>Hack to not use dev.ee.mulesource.com</name>
+			<url>https://repository.mulesoft.org/releases/</url>
+			<mirrorOf>mule-ee-releases,mule-ee-snapshots,libs-releases,ext-releases</mirrorOf>
+		</mirror>
+	</mirrors>
+	<pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://localhost:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>

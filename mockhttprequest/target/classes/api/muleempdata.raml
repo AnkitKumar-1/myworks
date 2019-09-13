@@ -1,0 +1,31 @@
+#%RAML 1.0
+version: v1
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/4523e13e-6de5-4dad-8665-62b0b2842ce9/ # 
+title: muleEmpData
+uses:
+  
+/createEmployeeData:
+  description: creating new employee data 
+  get:
+    description: geting the file and creating data from the file to DB.
+    body:
+      application/xml:
+    responses:
+      200:
+        description: epmloyee data created 
+        body:
+          application/json:
+            example:
+              {
+                "status":"success"
+              }
+      404:
+        description: no data found
+        body:
+          application/json:
+            example:
+              {
+              "status":"no data found"
+              }
+                    
+            
