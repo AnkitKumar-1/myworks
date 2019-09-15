@@ -9,7 +9,7 @@ pipeline{
 	stage('SonarQube Analysis'){
 		steps {
 			withSonarQubeEnv('SonarQube'){
-				bat 'sonar-scanner'
+				bat "${scannerHome}/bin/sonar-scanner"
 			}
       timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
