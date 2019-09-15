@@ -3,7 +3,7 @@ agent any
 stages {
   stage('Sonarqube') {
       environment {
-          scannerHome = tool 'SonarScanner'
+          scannerHome = tool 'SonarQubeScanner'
       }
       steps {
           withSonarQubeEnv('SonarQube') {
