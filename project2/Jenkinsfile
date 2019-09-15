@@ -4,14 +4,12 @@ pipeline{
     ANYPOINT = credentials('ANYPOINT')
 	  PATH = 'C:/WINDOWS/SYSTEM32'
  }
- tools {
-    sonarQube 'SonarScanner'
- }
  stages {
 	stage('SonarQube Analysis'){
+    def sonarqubeScannerHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     steps {
 			withSonarQubeEnv('SonarQube'){
-				bat "${scannerHome}/bin/sonar-scanner"
+				bat "${sonarqubeScannerHome}/bin/sonar-scanner"
 			}
 		  }
     }
