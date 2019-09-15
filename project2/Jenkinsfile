@@ -12,7 +12,7 @@ pipeline {
               def sonarScanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             }
           withSonarQubeEnv('SonarQube') {
-               bat "${sonarScanner}/bin/sonar-scanner
+               bat "${sonarScanner}/bin/sonar-scanner"
             }
          }
       }
