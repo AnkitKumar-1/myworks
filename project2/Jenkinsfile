@@ -4,9 +4,6 @@ pipeline {
       label "master"
     }
   }
-  environment {
-    PATH = 'C:/Program Files (x86)/Jenkins'
-  }
   stages {
     stage("SonarQube analysis") {
        steps {
