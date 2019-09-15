@@ -6,7 +6,7 @@ stages {
         steps {
             nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
               environment{
-                PROJECT_HOME = '%SONAR_RUNNER_HOME%\Projects'
+                PROJECT_HOME = '%SONAR_RUNNER_HOME%/Projects'
               }
                 // sonar script moet je in een nodejs module draaien !!
                 script {
