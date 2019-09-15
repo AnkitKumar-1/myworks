@@ -4,12 +4,17 @@ stages {
 
     stage('Sonar Analyse') {
         steps {
+            nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
+
+                // sonar script moet je in een nodejs module draaien !!
+                script {
                     withSonarQubeEnv('SonarQube') {
-                    bat "project2/sonar-scanner"
+                    def scannerHome = tool 'SonarQubeScanner';
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
+            }
             }
         }
     }
 }
-
-
+}
