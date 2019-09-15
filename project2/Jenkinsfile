@@ -3,7 +3,7 @@ pipeline{
  environment {
     ANYPOINT = credentials('ANYPOINT')
 	  PATH = 'C:/WINDOWS/SYSTEM32'
-    sonarqubeScannerHome = tool 'SonarScanner'
+    sonarqubeScannerHome = tools 'SonarScanner'
  }
  stages {
 	stage('SonarQube Analysis'){
