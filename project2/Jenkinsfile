@@ -10,7 +10,7 @@ pipeline {
           script {
               def sonarScanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
           withSonarQubeEnv('SonarQube') {
-               bat "${sonarScanner}/bin/sonar-scanner"
+               bat "C:/Program Files (x86)/Jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/bin/sonar-scanner"
             }
           }
          }
