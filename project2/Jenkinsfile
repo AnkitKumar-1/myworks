@@ -8,9 +8,9 @@ stages {
                 // sonar script moet je in een nodejs module draaien !!
                 script {
                   withSonarQubeEnv('SonarQube') {
-                    echo 'SONAR_RUNNER_HOME' = %SONAR_RUNNER_HOME%               
-                      }
-            }
+                    bat "sonar-scanner"              
+                  }
+              }
             }
         }
     }
