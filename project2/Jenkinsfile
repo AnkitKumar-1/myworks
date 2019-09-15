@@ -8,7 +8,7 @@ pipeline{
 	stage('SonarQube Analysis'){
     steps {
       script {
-        def sonarqubeScannerHome = tool name:'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'
+        def sonarqubeScannerHome = tool 'SonarScanner'
       }
 			withSonarQubeEnv('SonarQube'){
 				bat "${sonarqubeScannerHome}/bin/sonar-scanner"
