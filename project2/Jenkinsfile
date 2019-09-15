@@ -1,19 +1,21 @@
 pipeline {
-  agent {
-    node {
-      label "master"
-    }
-  }
-  stages {
-    stage("SonarQube analysis") {
-       steps {
-          script {
-              def sonarScanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-          withSonarQubeEnv('SonarQube') {
-               bat "C:/Program Files (x86)/Jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/bin/sonar-scanner"
+agent any
+stages {
+
+    stage('Sonar Analyse') {
+        steps {
+            nodejs(nodeJSInstallationName: 'NodeJSAuto', configId: '') {
+
+                // sonar script moet je in een nodejs module draaien !!
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                    def scannerHome = tool 'SonarQubeScanner';
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
-          }
-         }
-      }
+            }
+        }
     }
-  }
+}
+}
+
