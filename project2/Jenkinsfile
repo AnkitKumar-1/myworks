@@ -3,13 +3,13 @@ pipeline{
  environment {
     ANYPOINT = credentials('ANYPOINT')
 	  PATH = 'C:/WINDOWS/SYSTEM32'
-    sonarqubeScannerHome = tools 'SonarScanner'
+    sonarqubeScannerHome = tool 'SonarScanner'
  }
  stages {
 	stage('SonarQube Analysis'){
     steps {
 			withSonarQubeEnv('SonarQube'){
-				bat "${sonarqubeScannerHome}/bin/sonar-scanner"
+				bat "${sonarqubeScannerHome}\sonar-scanner"
 			}
 		  }
     }
