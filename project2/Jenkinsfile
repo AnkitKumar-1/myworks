@@ -7,13 +7,13 @@ pipeline{
  stages {
 	stage('SonarQube Analysis'){
 		steps {
-      def scannerHome = tool 'SonarScanner';
+      script {
+          // requires SonarQube Scanner 2.8+
+          scannerHome = tool 'SonarQube Scanner 2.8'
+      }
 			withSonarQubeEnv('SonarQube'){
 				bat "${scannerHome}/bin/sonar-scanner"
 			}
-      timeout(time: 10, unit: 'MINUTES') {
-            waitForQualityGate abortPipeline: true
-        }
 		  }
     }
  }
