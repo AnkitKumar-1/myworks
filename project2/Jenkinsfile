@@ -1,7 +1,9 @@
-node {
-  tools {
+pipeline{
+agent any
+tools {
     nodejs 'NodeJS'
   }
+ stages {
   stage('Build Angular App') {
     bat 'npm install'
   }
@@ -15,4 +17,6 @@ node {
                }
               } 
             }
+ }
+ }
 }
