@@ -1,9 +1,7 @@
 node {
 stages {
   stage('Build Angular App') {
-    steps {
-      bat "npm install"
-    }
+    bat 'npm install'
   }
     stage('Sonar Analyse') {
       steps {
@@ -16,3 +14,4 @@ stages {
               } 
             }
         }
+}
