@@ -1,17 +1,12 @@
 pipeline {
 agent any
-environment {
-  scannerHome = tool 'SonarQubeScanner'
-}
 stages {
     stage('Sonar Analyse') {
-      steps {
+              def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
                   bat "${scannerHome}/bin/sonar-scanner"
                 }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-              }
+
             }
         }
     }
