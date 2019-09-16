@@ -1,5 +1,4 @@
 node {
-stages {
   stage('Build Angular App') {
     bat 'npm install'
   }
@@ -13,5 +12,4 @@ stages {
                }
               } 
             }
-        }
 }
