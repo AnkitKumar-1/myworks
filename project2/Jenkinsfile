@@ -1,20 +1,16 @@
 pipeline {
 agent any
 environment {
-        scannerHome = tool 'SonarQubeScanner'
-    }
+  scannerHome = tool 'SonarQubeScanner'
+}
 stages {
     stage('Sonar Analyse') {
-        steps {
-            nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
-                dir ('C:/Program Files (x86)/Jenkins/workspace/angular-pipeline/project2') {
+      steps {
                 withSonarQubeEnv('SonarQube') {
-                  bat "${scannerHome}/sonar-scanner"
+                  bat "${scannerHome}/bin/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
-                }
-                }
               }
             }
         }
