@@ -1,14 +1,14 @@
-pipeline {
-agent any
-tools {
-    maven 'maven'
-}
+node {
 stages {
+  stage('Build Angular App'){
+    bat "npm install"
+  }
     stage('Sonar Analyse') {
       steps {
         script  {
+                def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
-                  bat "${JENKINS_HOME}/workspace/angular-pipeline/project2/sonar-scanner.bat"
+                  bat "${scannerHome}/bin/sonar-scanner"
                 }
                }
               } 
