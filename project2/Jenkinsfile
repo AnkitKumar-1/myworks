@@ -1,15 +1,18 @@
 pipeline {
 agent any
+environment {
+        scannerHome = tool 'SonarQubeScanner'
+    }
 stages {
-
     stage('Sonar Analyse') {
         steps {
             nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
-                // sonar script moet je in een nodejs module draaien !!
-                script {
-                  withSonarQubeEnv('SonarQube') {
-                    bat "sonar-scanner"              
-                  }
+                withSonarQubeEnv('SonarQube') {
+                    bat "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
               }
             }
         }
