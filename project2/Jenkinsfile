@@ -1,4 +1,7 @@
 node {
+  tools {
+    nodejs 'NodeJS'
+  }
   stage('Build Angular App') {
     bat 'npm install'
   }
