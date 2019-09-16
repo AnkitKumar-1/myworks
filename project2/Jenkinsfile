@@ -7,8 +7,11 @@ stages {
     stage('Sonar Analyse') {
         steps {
             nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
+                dir ('/workspace/angular-pipeline/project2') {
+                    bat 'pwd'
+                }
                 withSonarQubeEnv('SonarQube') {
-                    bat "${scannerHome}/bin/sonar-scanner"
+                    bat "sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
