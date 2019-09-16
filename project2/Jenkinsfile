@@ -2,11 +2,12 @@ pipeline {
 agent any
 stages {
     stage('Sonar Analyse') {
+      steps {
               def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
                   bat "${scannerHome}/bin/sonar-scanner"
                 }
-
+               }
             }
         }
     }
