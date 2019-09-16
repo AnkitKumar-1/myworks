@@ -8,7 +8,7 @@ stages {
       steps {
         script  {
                 withSonarQubeEnv('SonarQube') {
-                  bat "C:\\Program Files\\sonar-scanner-4.0.0.1744-windows\\bin\\sonar-scanner.bat"
+                  bat "${JENKINS_HOME}/workspace/angular-pipeline/project2/sonar-scanner.bat"
                 }
                }
               } 
