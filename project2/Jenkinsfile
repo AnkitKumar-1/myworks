@@ -9,7 +9,7 @@ stages {
             nodejs(nodeJSInstallationName: 'NodeJS', configId: '') {
                 dir ('C:/Program Files (x86)/Jenkins/workspace/angular-pipeline/project2') {
                 withSonarQubeEnv('SonarQube') {
-                    bat "sonar-scanner"
+                  bat "${scannerHome}/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
