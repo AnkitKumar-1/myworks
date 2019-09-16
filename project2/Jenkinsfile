@@ -5,7 +5,9 @@ tools {
   }
  stages {
   stage('Build Angular App') {
-    bat 'npm install'
+    steps {
+      bat 'npm install'
+    }
   }
     stage('Sonar Analyse') {
       steps {
