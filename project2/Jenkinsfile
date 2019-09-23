@@ -4,20 +4,13 @@ tools {
     nodejs 'NodeJS'
   }
  stages {
-  stage('Build Angular App') {
-    steps {
-      bat 'npm install'
-    }
-  }
     stage('Sonar Analyse') {
       steps {
         script  {
                 def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
-                  bat "${scannerHome}/bin/sonar-scanner -Dproject.settings='project2/sonar-project.properties'"
+                  bat "${scannerHome}/bin/sonar-scanner"
                 }
                }
-              } 
-            }
  }
 }
