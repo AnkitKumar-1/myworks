@@ -6,7 +6,7 @@ agent any
         script  {
                 def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
-                  bat "${scannerHome}/bin/sonar-scanner"
+                  bat " -f project2/sonar-project.properties ${scannerHome}/bin/sonar-scanner"
                 }
                }
       }
