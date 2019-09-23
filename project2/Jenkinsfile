@@ -1,8 +1,5 @@
 pipeline{
 agent any
-tools {
-    nodejs 'NodeJS'
-  }
  stages {
     stage('Sonar Analyse') {
       steps {
@@ -12,5 +9,7 @@ tools {
                   bat "${scannerHome}/bin/sonar-scanner"
                 }
                }
+      }
+    }
  }
 }
