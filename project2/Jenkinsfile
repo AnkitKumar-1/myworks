@@ -14,7 +14,7 @@ tools {
         script  {
                 def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQube') {
-                  bat "${scannerHome}/bin/sonar-scanner"
+                  bat "${scannerHome}/bin/sonar-scanner -Dproject.settings='project2/sonar-project.properties'"
                 }
                }
               } 
